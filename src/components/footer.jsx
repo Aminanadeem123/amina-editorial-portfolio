@@ -20,11 +20,11 @@ function Footer() {
         }}
       >
         <div>
-          <h2>Portfolio.</h2>
+          <h2>Amina Nadeem.</h2>
           <p style={{ color: "#aaa", lineHeight: "1.8" }}>
-            Muhammad Haris | React Developer
+            Amina Nadeem | Front-End Developer
             <br />
-            Creating modern websites.
+            Creating modern digital experiences.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ function Footer() {
 
         <div>
           <h3>Social Links</h3>
-          <a href="https://github.com/" style={linkStyle}>GitHub</a>
+          <a href="https://github.com/Aminanadeem123" style={linkStyle}>GitHub</a>
           <a href="https://linkedin.com/" style={linkStyle}>LinkedIn</a>
         </div>
       </div>
@@ -50,7 +50,7 @@ function Footer() {
           color: "#888",
         }}
       >
-        © {new Date().getFullYear()} Muhammad Haris. All Rights Reserved.
+        © {new Date().getFullYear()} Amina Nadeem. All Rights Reserved.
       </div>
     </footer>
   );

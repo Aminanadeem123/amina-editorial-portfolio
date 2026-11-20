@@ -1,6 +1,6 @@
 
 import { ArrowUpRight } from "lucide-react";
-import "./Navbar.css";
+import "./navbar.css";
 
 function Navbar() {
   return (
