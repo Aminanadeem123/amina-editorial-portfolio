@@ -25,11 +25,11 @@ function Contact() {
         }
       );
 
-      setStatus("Message sent successfully!");
+      setStatus("success: Message sent successfully!");
       formRef.current.reset();
     } catch (error) {
       console.error("EmailJS error:", error);
-      setStatus("Message could not be sent. Please try again.");
+      setStatus("error: Message could not be sent. Please try again.");
     } finally {
       setSending(false);
     }
@@ -39,29 +39,39 @@ function Contact() {
     <section className="contact-section" id="contact">
       <div className="container">
         <div className="contact-top">
-          <span className="section-label">05 / GET IN TOUCH</span>
+          <span className="section-label">05 / CONTACT</span>
           <span className="contact-note">HAVE A PROJECT IN MIND?</span>
         </div>
 
         <div className="contact-layout">
           <motion.div
             className="contact-content"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2>Let's create<br /><em>something meaningful.</em></h2>
+            <span className="contact-kicker">LET'S WORK TOGETHER</span>
+
+            <h2>
+              Have an idea?
+              <br />
+              <em>Let's talk.</em>
+            </h2>
+
             <p>
-              Have a project idea or want to discuss a collaboration?
-              Send me a message and let's talk.
+              Have a website project, a question, or an idea
+              you'd like to discuss? I'd be happy to hear from you.
             </p>
 
             <div className="contact-links">
-              <a href="mailto:aminanadeem712@gmail.com" className="contact-email">
-                <Mail size={18} />
+              <a
+                href="mailto:aminanadeem712@gmail.com"
+                className="contact-email"
+              >
+                <Mail size={17} />
                 EMAIL ME
-                <ArrowUpRight size={18} />
+                <ArrowUpRight size={17} />
               </a>
 
               <a
@@ -70,10 +80,14 @@ function Contact() {
                 rel="noreferrer"
                 className="contact-github"
               >
-                <span className="github-mark">GH</span>
                 GITHUB PROFILE
-                <ArrowUpRight size={18} />
+                <ArrowUpRight size={17} />
               </a>
+            </div>
+
+            <div className="contact-location">
+              <span className="location-dot"></span>
+              KARACHI, PAKISTAN
             </div>
           </motion.div>
 
@@ -81,12 +95,15 @@ function Contact() {
             ref={formRef}
             className="contact-form"
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <span className="section-label">SEND A MESSAGE</span>
+            <div className="form-heading">
+              <span className="section-label">01 — SEND A MESSAGE</span>
+              <p>I'll get back to you as soon as possible.</p>
+            </div>
 
             <label>
               YOUR NAME
@@ -111,11 +128,13 @@ function Contact() {
             <label>
               PROJECT TYPE
               <select name="project_type" defaultValue="" required>
-                <option value="" disabled>Select project type</option>
-                <option>Business Website</option>
-                <option>Landing Page</option>
-                <option>Web Application</option>
-                <option>Other</option>
+                <option value="" disabled>
+                  Select project type
+                </option>
+                <option value="Business Website">Business Website</option>
+                <option value="Landing Page">Landing Page</option>
+                <option value="Web Application">Web Application</option>
+                <option value="Other">Other</option>
               </select>
             </label>
 
@@ -123,7 +142,7 @@ function Contact() {
               YOUR MESSAGE
               <textarea
                 name="message"
-                placeholder="Tell me about your project..."
+                placeholder="Tell me a little about your idea..."
                 rows="4"
                 required
               />
@@ -134,13 +153,22 @@ function Contact() {
               <ArrowUpRight size={17} />
             </button>
 
-            {status && <p role="status">{status}</p>}
+            {status && (
+              <p
+                className={`form-status ${
+                  status.startsWith("success") ? "success" : "error"
+                }`}
+                role="status"
+              >
+                {status.split(": ")[1]}
+              </p>
+            )}
           </motion.form>
         </div>
 
         <div className="contact-bottom">
-          <span>BASED IN KARACHI, PAKISTAN</span>
-          <span>AVAILABLE FOR COLLABORATION</span>
+          <span>AMINA NADEEM / WEB DEVELOPER</span>
+          <span>OPEN TO PROJECT DISCUSSIONS</span>
         </div>
       </div>
     </section>

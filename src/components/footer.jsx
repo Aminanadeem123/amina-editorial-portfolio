@@ -1,66 +1,70 @@
 
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import "./footer.css";
 
 function Footer() {
   return (
-    <footer
-      style={{
-        backgroundColor: "#111",
-        color: "white",
-        padding: "45px 8% 20px",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "30px",
-          marginBottom: "30px",
-        }}
-      >
-        <div>
-          <h2>Amina Nadeem.</h2>
-          <p style={{ color: "#aaa", lineHeight: "1.8" }}>
-            Amina Nadeem | Front-End Developer
-            <br />
-            Creating modern digital experiences.
-          </p>
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-main">
+          <div className="footer-brand">
+            <Link to="/" className="footer-logo">
+              Amina Nadeem<span>.</span>
+            </Link>
+
+            <p>
+              Web developer creating thoughtful,
+              responsive and useful digital experiences.
+            </p>
+
+            <span className="footer-location">
+              KARACHI, PAKISTAN
+            </span>
+          </div>
+
+          <div className="footer-column">
+            <span className="footer-heading">NAVIGATION</span>
+
+            <a href="/#home">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#work">Projects</a>
+            <a href="/#contact">Contact</a>
+          </div>
+
+          <div className="footer-column">
+            <span className="footer-heading">ELSEWHERE</span>
+
+            <a
+              href="https://github.com/Aminanadeem123"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub <ArrowUpRight size={14} />
+            </a>
+
+            <a
+              href="mailto:aminanadeem712@gmail.com"
+            >
+              Email <ArrowUpRight size={14} />
+            </a>
+          </div>
         </div>
 
-        <div>
-          <h3>Quick Links</h3>
-          <Link to="/" style={linkStyle}>Home</Link>
-          <Link to="/projects" style={linkStyle}>Projects</Link>
-          <Link to="/contact" style={linkStyle}>Contact</Link>
-        </div>
+        <div className="footer-bottom">
+          <span>
+            © {new Date().getFullYear()} AMINA NADEEM
+          </span>
 
-        <div>
-          <h3>Social Links</h3>
-          <a href="https://github.com/Aminanadeem123" style={linkStyle}>GitHub</a>
-          <a href="https://linkedin.com/" style={linkStyle}>LinkedIn</a>
-        </div>
-      </div>
+          <span>DESIGNED & BUILT WITH CARE</span>
 
-      <div
-        style={{
-          borderTop: "1px solid #333",
-          paddingTop: "20px",
-          textAlign: "center",
-          color: "#888",
-        }}
-      >
-        © {new Date().getFullYear()} Amina Nadeem. All Rights Reserved.
+          <a href="#home" className="back-to-top">
+            BACK TO TOP ↑
+          </a>
+        </div>
       </div>
     </footer>
   );
 }
-
-const linkStyle = {
-  display: "block",
-  color: "#aaa",
-  textDecoration: "none",
-  marginBottom: "12px",
-};
 
 export default Footer;

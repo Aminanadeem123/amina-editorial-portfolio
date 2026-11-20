@@ -1,36 +1,49 @@
 
 .about-section {
-  padding: 120px 0;
+  padding: 110px 0;
   border-top: 1px solid var(--line);
 }
 
 .about-heading {
-  margin-bottom: 75px;
+  margin-bottom: 65px;
 }
 
 .about-heading h2 {
   font-family: var(--font-display);
-  font-size: clamp(48px, 7vw, 82px);
+  font-size: clamp(52px, 7vw, 88px);
   font-weight: 500;
-  letter-spacing: -3px;
+  letter-spacing: -4px;
+  line-height: 1.02;
   margin-top: 22px;
 }
 
 .about-heading h2 em {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 100px;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.about-main {
+  max-width: 600px;
 }
 
 .about-main > p {
-  max-width: 620px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.9;
-  color: #555550;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.about-main > .about-intro {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 29px);
+  line-height: 1.5;
+  color: var(--text);
   margin-bottom: 24px;
 }
 
@@ -38,53 +51,70 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin-top: 25px;
-  padding-bottom: 10px;
+  margin-top: 22px;
+  padding-bottom: 9px;
   border-bottom: 1px solid var(--text);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 1px;
+  transition: gap 0.3s ease;
+}
+
+.about-link:hover {
+  gap: 18px;
 }
 
 .about-details {
   display: flex;
   flex-direction: column;
-  gap: 40px;
 }
 
-.about-details > div {
-  padding-bottom: 30px;
+.about-detail {
+  padding: 0 0 25px;
+  margin-bottom: 25px;
   border-bottom: 1px solid var(--line);
 }
 
-.about-details h3 {
-  font-family: var(--font-display);
-  font-size: 25px;
-  font-weight: 500;
-  margin: 15px 0 10px;
+.about-detail:last-child {
+  margin-bottom: 0;
 }
 
-.about-details p {
+.about-detail h3 {
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 500;
+  margin: 13px 0 7px;
+}
+
+.about-detail p {
   color: var(--muted);
   font-size: 13px;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 @media (max-width: 700px) {
   .about-section {
-    padding: 80px 0;
+    padding: 75px 0;
   }
 
   .about-heading {
-    margin-bottom: 45px;
+    margin-bottom: 40px;
+  }
+
+  .about-heading h2 {
+    letter-spacing: -2px;
   }
 
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 55px;
+    gap: 50px;
   }
 
   .about-main > p {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  .about-main > .about-intro {
+    font-size: 23px;
   }
 }

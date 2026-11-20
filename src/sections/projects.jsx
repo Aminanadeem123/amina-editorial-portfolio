@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import "./projects.css";
+
 import budgetImage from "../assets/projects/budgetbasics.png";
 import fureverImage from "../assets/projects/furever.png";
 import mindcareImage from "../assets/projects/mindcare.png";
@@ -12,117 +13,152 @@ import petbotImage from "../assets/projects/petbot.png";
 const projects = [
   {
     number: "01",
-    slug:"budgetbasics",
+    slug: "budgetbasics",
     title: "BudgetBasics",
+    category: "Finance & Budgeting",
+    description: "A budgeting application for expenses, savings goals and financial planning.",
+    technologies: ["React", "JavaScript", "Chart.js"],
     image: budgetImage,
-    category: "Budget Planning Web Application",
-    description:
-      "A budgeting platform designed to help users organize expenses, savings goals and financial planning.",
-    technologies: ["React", "JavaScript", "CSS", "Chart.js"],
     link: "https://thebudgetbasics.netlify.app/",
-    type: "Live Project",
+    status: "LIVE",
+    linkLabel: "LIVE WEBSITE",
   },
+ 
   {
     number: "02",
-    slug:"furever-care",
-    title: "FurEVER Care",
-    image: fureverImage,
-    category: "Pet Care Website",
-    description:
-      "A responsive pet care platform designed for pet owners, veterinarians and animal shelters.",
-    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
-    link: "https://aminanadeem123.github.io/FurEVER-Care/",
-    type: "Live Project",
+    slug: "mindcare-hub",
+    title: "MindCare Hub",
+    category: "Mental Wellness",
+    description: "A wellness website with mood tracking, journaling and interactive dashboards.",
+    technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+    image: mindcareImage,
+    link: "https://aminanadeem123.github.io/mindcare/",
+    status: "LIVE",
+    linkLabel: "LIVE WEBSITE",
   },
   {
     number: "03",
-    slug:"mindcare-hub",
-    title: "MindCare Hub",
-    image: mindcareImage,
-    category: "Mental Wellness Website",
-    description:
-      "A mental wellness interface featuring mood tracking, journaling and interactive dashboards.",
-    technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    link: "https://aminanadeem123.github.io/mindcare/",
-    type: "Live Project",
+    slug: "furever-care",
+    title: "FurEVER Care",
+    category: "Pet Care Platform",
+    description: "A responsive platform designed for pet owners, vets and shelters.",
+    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
+    image: fureverImage,
+    link: "https://aminanadeem123.github.io/FurEVER-Care/",
+    status: "LIVE",
+    linkLabel: "LIVE WEBSITE",
   },
   {
     number: "04",
-    slug:"petbot",
-    title: "PetBot",
-    image: petbotImage,
-    category: "Pet Care Website",
-    description:
-      "A pet-related web project focused on an engaging and user-friendly experience.",
+    slug: "pc-center",
+    title: "PC Center",
+    category: "E-commerce Interface",
+    description: "A computer products website with categories, product details and a PC builder.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    link: "https://aminanadeem123.github.io/PetBot-Website/",
-    type: "Live Project",
+    image: pcImage,
+    link: "https://github.com/Aminanadeem123/PC-Center",
+    status: "GITHUB",
+    linkLabel: "VIEW GITHUB",
   },
   {
     number: "05",
-    slug:"pc-center",
-    title: "PC Center",
-    image: pcImage,
-    category: "E-commerce Website",
-    description:
-      "A computer products website with product categories, product details and a PC builder interface.",
+    slug: "petbot",
+    title: "PetBot",
+    category: "Pet Care Website",
+    description: "A pet-focused website with a simple and accessible browsing experience.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    link: "https://github.com/Aminanadeem123/PC-Center",
-    type: "GitHub Project",
+    image: petbotImage,
+    link: "https://aminanadeem123.github.io/PetBot-Website/",
+    status: "LIVE",
+    linkLabel: "LIVE WEBSITE",
   },
-  
-{
-  number: "06",
-    slug:"vaxcare",
-  title: "VaxCare",
-  category: "Vaccination Management System",
-  description:
-    "Currently in development — a PHP and MySQL based vaccination management system with admin, parent and hospital dashboards.",
-  technologies: ["PHP", "MySQL", "HTML", "CSS"],
-  link: "",
-  type: "Currently in Development",
-},
-
+   {
+    number: "06",
+    slug: "vaxcare",
+    title: "VaxCare",
+    category: "Management System",
+    description: "A vaccination management system built with PHP and MySQL.",
+    technologies: ["PHP", "MySQL", "HTML", "CSS"],
+    image: null,
+    link: "",
+    status: "IN DEVELOPMENT",
+  },
 ];
 
 function Projects() {
   return (
     <section className="projects-section" id="work">
       <div className="container">
+        <motion.div
+          className="projects-heading"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="projects-heading-top">
+            <span>02 / SELECTED WORK</span>
+            <span>PORTFOLIO — 2026</span>
+          </div>
 
-        <div className="projects-heading">
-          <span className="section-label">04 / SELECTED WORK</span>
-          <h2>Things I've <em>worked on.</em></h2>
+          <h2>
+            Things I've <em>built.</em>
+          </h2>
+
           <p>
-            A selection of projects built through practice,
-            experimentation and continuous learning.
+            A selection of web projects developed through
+            practice, experimentation and learning.
           </p>
-        </div>
+        </motion.div>
 
         <div className="projects-grid">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.article
               className="project-card"
-              key={project.number}
+              key={project.slug}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: (index % 2) * 0.1 }}
             >
               <div className="project-card-top">
-                <span>{project.number} / 06</span>
-                <span>{project.type}</span>
+                <span>PROJECT / {project.number}</span>
+                <span>{project.status}</span>
               </div>
 
+              <Link
+                to={`/projects/${project.slug}`}
+                className="project-image-link"
+                aria-label={`View ${project.title} case study`}
+              >
+                <div className={`project-image ${!project.image ? "project-image-placeholder" : ""}`}>
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={`${project.title} project screenshot`}
+                    />
+                  ) : (
+                    <div className="project-placeholder-content">
+                      <span>PHP / MYSQL</span>
+                      <h3>VaxCare</h3>
+                      <p>Vaccination Management System</p>
+                    </div>
+                  )}
+
+                  <span className="image-open-icon">
+                    <ArrowUpRight size={19} />
+                  </span>
+                </div>
+              </Link>
+
               <div className="project-card-content">
-                  {project.image && (
-                   <div className="project-image">
-                     <img src={project.image} alt={project.title} />
-                   </div>
-                 )}
-                <span className="section-label">{project.category}</span>
+                <span className="project-category">{project.category}</span>
+
                 <h3>{project.title}</h3>
-                <p>{project.description}</p>
+
+                <p className="project-description">
+                  {project.description}
+                </p>
 
                 <div className="project-technologies">
                   {project.technologies.map((technology) => (
@@ -130,20 +166,29 @@ function Projects() {
                   ))}
                 </div>
 
-                <Link to={`/projects/${project.slug}`} className="project-link">
-                   VIEW CASE STUDY <ArrowUpRight size={17} />
-                 </Link>
+                <div className="project-card-links">
+                  <Link
+                    to={`/projects/${project.slug}`}
+                    className="project-link"
+                  >
+                    CASE STUDY <ArrowUpRight size={15} />
+                  </Link>
 
-                 {project.link && (
-                   <a href={project.link} target="_blank" rel="noreferrer" className="project-link">
-                     VIEW LIVE PROJECT <ArrowUpRight size={17} />
-                   </a>
-                 )}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="project-live-link"
+                    >
+                      {project.linkLabel} <ArrowUpRight size={15} />
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.article>
           ))}
         </div>
-
       </div>
     </section>
   );

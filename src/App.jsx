@@ -11,20 +11,26 @@ import ProjectDetails from "./pages/ProjectDetails";
 import Contact from "./sections/contact";
 import Footer from "./components/footer";
 
+
 function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <About />
-      <Education />
-      <Skills />
-      <Projects />
-      <Contact />
+
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
+
       <Footer />
     </>
   );
 }
+
 
 function App() {
   return (
