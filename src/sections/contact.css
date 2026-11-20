@@ -1,0 +1,238 @@
+
+.contact-section {
+  padding: 120px 0 30px;
+  border-top: 1px solid var(--line);
+}
+
+.contact-top,
+.contact-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.3px;
+  color: var(--muted);
+}
+
+.contact-content {
+  padding: 100px 0 110px;
+  max-width: 900px;
+}
+
+.contact-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(55px, 9vw, 110px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -5px;
+}
+
+.contact-content h2 em {
+  font-weight: 500;
+}
+
+.contact-content > p {
+  max-width: 430px;
+  margin-top: 30px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 17px 22px;
+  border: 1px solid var(--text);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.contact-email {
+  background: var(--text);
+  color: white;
+}
+
+.contact-email:hover {
+  background: transparent;
+  color: var(--text);
+  transform: translateY(-3px);
+}
+
+.contact-github:hover {
+  background: var(--text);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.contact-links a svg {
+  transition: transform 0.3s ease;
+}
+
+.contact-links a:hover svg:last-child {
+  transform: translate(3px, -3px);
+}
+
+.contact-bottom {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding-top: 80px;
+  }
+
+  .contact-content {
+    padding: 75px 0;
+  }
+
+  .contact-content h2 {
+    font-size: clamp(45px, 11vw, 65px);
+    letter-spacing: -3px;
+  }
+
+  .contact-content > p {
+    font-size: 13px;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* Contact Layout */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.contact-content {
+  padding: 30px 0 60px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 35px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.contact-form > .section-label {
+  margin-bottom: 10px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-bottom-color: var(--text);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+.contact-form select {
+  cursor: pointer;
+}
+
+.contact-form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  padding: 18px;
+  border: 1px solid var(--text);
+  background: var(--text);
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: transparent;
+  color: var(--text);
+}
+
+.contact-bottom {
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .contact-content {
+    padding: 50px 0 10px;
+  }
+
+  .contact-form {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-layout {
+    gap: 25px;
+  }
+
+  .contact-form {
+    padding: 22px 18px;
+  }
+}

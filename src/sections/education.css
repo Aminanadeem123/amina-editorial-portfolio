@@ -1,0 +1,121 @@
+
+.education-section {
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+}
+
+.education-heading {
+  margin-bottom: 75px;
+}
+
+.education-heading h2 {
+  max-width: 750px;
+  font-family: var(--font-display);
+  font-size: clamp(45px, 7vw, 78px);
+  font-weight: 500;
+  letter-spacing: -3px;
+  line-height: 1.1;
+  margin-top: 22px;
+}
+
+.education-heading h2 em {
+  font-weight: 500;
+}
+
+.education-list {
+  border-top: 1px solid var(--line);
+}
+
+.education-item {
+  display: grid;
+  grid-template-columns: 65px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 30px;
+  padding: 38px 15px;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.education-item:hover {
+  background: #efefec;
+  padding-left: 25px;
+}
+
+.education-number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.education-item h3 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin: 13px 0 8px;
+}
+
+.education-item p {
+  font-size: 14px;
+  color: #555550;
+  line-height: 1.8;
+  margin-bottom: 5px;
+}
+
+.education-item small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 5px;
+}
+
+.education-status {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text);
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+
+@media (max-width: 650px) {
+  .education-section {
+    padding: 80px 0;
+  }
+
+  .education-heading {
+    margin-bottom: 45px;
+  }
+
+  .education-heading h2 {
+    font-size: clamp(40px, 10vw, 58px);
+    letter-spacing: -2px;
+  }
+
+  .education-item {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 15px;
+    padding: 28px 5px;
+  }
+
+  .education-item:hover {
+    padding-left: 10px;
+  }
+
+  .education-item h3 {
+    font-size: 26px;
+  }
+
+  .education-item p {
+    font-size: 13px;
+  }
+
+  .education-status {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 5px;
+  }
+}
