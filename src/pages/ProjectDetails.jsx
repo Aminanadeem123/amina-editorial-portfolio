@@ -5,10 +5,19 @@ import { motion } from "framer-motion";
 import "./ProjectDetails.css";
 
 import budgetImage from "../assets/projects/budgetbasics.png";
+import budgetMobile from "../assets/projects/budgetbasics-mobile.png";
+
 import fureverImage from "../assets/projects/furever.png";
+import fureverMobile from "../assets/projects/furever-mobile.png";
+
 import mindcareImage from "../assets/projects/mindcare.png";
+import mindcareMobile from "../assets/projects/mindcare-mobile.png";
+
 import pcImage from "../assets/projects/pccenter.png";
+import pcMobile from "../assets/projects/pccenter-mobile.png";
+
 import petbotImage from "../assets/projects/petbot.png";
+import petbotMobile from "../assets/projects/petbot-mobile.png";
 
 const projectDetails = {
   budgetbasics: {
@@ -16,7 +25,9 @@ const projectDetails = {
     title: "BudgetBasics",
     category: "Budget Planning Web Application",
     type: "Frontend Development",
+    status: "LIVE",
     image: budgetImage,
+    mobileImage: budgetMobile,
     overview:
       "BudgetBasics is a budgeting platform designed to help users organize expenses, plan savings goals and understand their finances through a clear interface.",
     contribution:
@@ -39,7 +50,9 @@ const projectDetails = {
     title: "FurEVER Care",
     category: "Pet Care Website",
     type: "Team Project",
+    status: "LIVE",
     image: fureverImage,
+    mobileImage: fureverMobile,
     overview:
       "FurEVER Care is a responsive pet care platform created to connect pet owners, veterinarians and animal shelters through dedicated website sections.",
     contribution:
@@ -62,7 +75,9 @@ const projectDetails = {
     title: "MindCare Hub",
     category: "Mental Wellness Website",
     type: "Frontend Development",
+    status: "LIVE",
     image: mindcareImage,
+    mobileImage: mindcareMobile,
     overview:
       "MindCare Hub is a mental wellness website featuring interactive tools, mood tracking, journaling and different user dashboards.",
     contribution:
@@ -85,7 +100,9 @@ const projectDetails = {
     title: "PetBot",
     category: "Pet Care Website",
     type: "Web Development Project",
+    status: "LIVE",
     image: petbotImage,
+    mobileImage: petbotMobile,
     overview:
       "PetBot is a pet-related website designed to present useful information through a simple and user-friendly interface.",
     contribution:
@@ -106,7 +123,9 @@ const projectDetails = {
     title: "PC Center",
     category: "Computer Products Website",
     type: "Frontend Development",
+    status: "GITHUB",
     image: pcImage,
+    mobileImage: pcMobile,
     overview:
       "PC Center is a computer products website featuring product categories, product details and a PC builder interface.",
     contribution:
@@ -129,7 +148,9 @@ const projectDetails = {
     title: "VaxCare",
     category: "Vaccination Management System",
     type: "PHP & MySQL Project",
+    status: "IN DEVELOPMENT",
     image: null,
+    mobileImage: null,
     overview:
       "VaxCare is a vaccination management system currently in development, designed to organize vaccination-related activities for parents, hospitals and administrators.",
     contribution:
@@ -196,7 +217,25 @@ function ProjectDetails() {
 
           <div className="detail-image">
             {project.image ? (
-              <img src={project.image} alt={`${project.title} project preview`} />
+              <div className="detail-preview-layout">
+                <div className="detail-desktop-preview">
+                  <span>DESKTOP PREVIEW</span>
+                  <img
+                    src={project.image}
+                    alt={`${project.title} desktop preview`}
+                  />
+                </div>
+
+                {project.mobileImage && (
+                  <div className="detail-mobile-preview">
+                    <span>MOBILE PREVIEW</span>
+                    <img
+                      src={project.mobileImage}
+                      alt={`${project.title} mobile preview`}
+                    />
+                  </div>
+                )}
+              </div>
             ) : (
               <div className="detail-placeholder">
                 <span>PROJECT / {project.number}</span>

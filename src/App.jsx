@@ -11,7 +11,6 @@ import ProjectDetails from "./pages/ProjectDetails";
 import Contact from "./sections/contact";
 import Footer from "./components/footer";
 
-
 function Home() {
   return (
     <>
@@ -19,8 +18,8 @@ function Home() {
 
       <main>
         <Hero />
-        <About />
         <Projects />
+        <About />
         <Skills />
         <Education />
         <Contact />
@@ -29,8 +28,7 @@ function Home() {
       <Footer />
     </>
   );
-}
-
+};
 
 function App() {
   return (

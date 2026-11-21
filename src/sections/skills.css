@@ -10,12 +10,12 @@
 }
 
 .skills-heading h2 {
+  margin-top: 20px;
   font-family: var(--font-display);
   font-size: clamp(46px, 6vw, 76px);
   font-weight: 500;
   letter-spacing: -3px;
   line-height: 1.1;
-  margin-top: 20px;
 }
 
 .skills-heading h2 em {
@@ -36,7 +36,7 @@
 
 .skill-group {
   display: grid;
-  grid-template-columns: 55px 220px 1fr;
+  grid-template-columns: 55px 220px minmax(0, 1fr);
   align-items: center;
   gap: 25px;
   padding: 32px 10px;
@@ -45,7 +45,7 @@
 }
 
 .skill-group:hover {
-  background: #efefec;
+  background: rgba(0, 0, 0, 0.025);
 }
 
 .skill-number {
@@ -56,8 +56,9 @@
 
 .skill-group h3 {
   font-family: var(--font-display);
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 500;
+  line-height: 1.4;
 }
 
 .skill-tags {
@@ -70,14 +71,15 @@
   padding: 10px 14px;
   border: 1px solid var(--line);
   border-radius: 2px;
+  color: var(--text);
   font-size: 12px;
-  color: #444440;
-  transition: all 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .skill-tags span:hover {
   background: var(--text);
-  color: white;
+  color: var(--surface);
   border-color: var(--text);
 }
 
@@ -92,15 +94,28 @@
 }
 
 .skills-note p {
+  max-width: 430px;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.7;
 }
 
+@media (max-width: 900px) {
+  .skill-group {
+    grid-template-columns: 40px minmax(150px, 0.8fr) 1.2fr;
+    gap: 16px;
+  }
+}
+
 @media (max-width: 800px) {
   .skill-group {
-    grid-template-columns: 35px 1fr;
+    grid-template-columns: 35px minmax(0, 1fr);
     gap: 15px;
+    padding: 27px 5px;
+  }
+
+  .skill-group h3 {
+    font-size: 21px;
   }
 
   .skill-tags {
@@ -124,7 +139,7 @@
   }
 
   .skills-heading h2 {
-    font-size: 46px;
+    font-size: clamp(42px, 10vw, 52px);
     letter-spacing: -2px;
   }
 
@@ -139,5 +154,16 @@
   .skill-tags span {
     padding: 9px 11px;
     font-size: 11px;
+  }
+
+  .skills-note {
+    padding: 22px 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-group,
+  .skill-tags span {
+    transition: none;
   }
 }

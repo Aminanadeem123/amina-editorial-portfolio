@@ -5,10 +5,19 @@ import { ArrowUpRight } from "lucide-react";
 import "./projects.css";
 
 import budgetImage from "../assets/projects/budgetbasics.png";
+import budgetMobile from "../assets/projects/budgetbasics-mobile.png";
+
 import fureverImage from "../assets/projects/furever.png";
+import fureverMobile from "../assets/projects/furever-mobile.png";
+
 import mindcareImage from "../assets/projects/mindcare.png";
+import mindcareMobile from "../assets/projects/mindcare-mobile.png";
+
 import pcImage from "../assets/projects/pccenter.png";
+import pcMobile from "../assets/projects/pccenter-mobile.png";
+
 import petbotImage from "../assets/projects/petbot.png";
+import petbotMobile from "../assets/projects/petbot-mobile.png";
 
 const projects = [
   {
@@ -19,11 +28,11 @@ const projects = [
     description: "A budgeting application for expenses, savings goals and financial planning.",
     technologies: ["React", "JavaScript", "Chart.js"],
     image: budgetImage,
+    mobileImage: budgetMobile,
     link: "https://thebudgetbasics.netlify.app/",
     status: "LIVE",
     linkLabel: "LIVE WEBSITE",
   },
- 
   {
     number: "02",
     slug: "mindcare-hub",
@@ -32,6 +41,7 @@ const projects = [
     description: "A wellness website with mood tracking, journaling and interactive dashboards.",
     technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
     image: mindcareImage,
+    mobileImage: mindcareMobile,
     link: "https://aminanadeem123.github.io/mindcare/",
     status: "LIVE",
     linkLabel: "LIVE WEBSITE",
@@ -44,6 +54,7 @@ const projects = [
     description: "A responsive platform designed for pet owners, vets and shelters.",
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
     image: fureverImage,
+    mobileImage: fureverMobile,
     link: "https://aminanadeem123.github.io/FurEVER-Care/",
     status: "LIVE",
     linkLabel: "LIVE WEBSITE",
@@ -56,6 +67,7 @@ const projects = [
     description: "A computer products website with categories, product details and a PC builder.",
     technologies: ["HTML", "CSS", "JavaScript"],
     image: pcImage,
+    mobileImage: pcMobile,
     link: "https://github.com/Aminanadeem123/PC-Center",
     status: "GITHUB",
     linkLabel: "VIEW GITHUB",
@@ -68,11 +80,12 @@ const projects = [
     description: "A pet-focused website with a simple and accessible browsing experience.",
     technologies: ["HTML", "CSS", "JavaScript"],
     image: petbotImage,
+    mobileImage: petbotMobile,
     link: "https://aminanadeem123.github.io/PetBot-Website/",
     status: "LIVE",
     linkLabel: "LIVE WEBSITE",
   },
-   {
+  {
     number: "06",
     slug: "vaxcare",
     title: "VaxCare",
@@ -80,6 +93,7 @@ const projects = [
     description: "A vaccination management system built with PHP and MySQL.",
     technologies: ["PHP", "MySQL", "HTML", "CSS"],
     image: null,
+    mobileImage: null,
     link: "",
     status: "IN DEVELOPMENT",
   },
@@ -133,10 +147,22 @@ function Projects() {
               >
                 <div className={`project-image ${!project.image ? "project-image-placeholder" : ""}`}>
                   {project.image ? (
-                    <img
-                      src={project.image}
-                      alt={`${project.title} project screenshot`}
-                    />
+                    <div className="project-preview-layout">
+                      <img
+                        src={project.image}
+                        alt={`${project.title} desktop preview`}
+                        className="project-desktop-preview"
+                      />
+
+                      {project.mobileImage && (
+                        <div className="project-mobile-frame">
+                          <img
+                            src={project.mobileImage}
+                            alt={`${project.title} mobile preview`}
+                          />
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <div className="project-placeholder-content">
                       <span>PHP / MYSQL</span>

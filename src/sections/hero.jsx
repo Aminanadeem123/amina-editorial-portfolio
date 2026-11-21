@@ -1,14 +1,10 @@
 
-import { ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import "./hero.css";
 
-const projects = [
-  { number: "01", name: "BudgetBasics", type: "Finance Web Application" },
-  { number: "02", name: "VaxCare", type: "PHP & MySQL Project" },
-  { number: "03", name: "MindCare Hub", type: "Mental Wellness Website" },
-  { number: "04", name: "FurEVER Care", type: "Pet Care Website" },
-];
+import budgetImage from "../assets/projects/budgetbasics.png";
+import budgetMobile from "../assets/projects/budgetbasics-mobile.png";
 
 function Hero() {
   return (
@@ -16,91 +12,103 @@ function Hero() {
       <div className="container">
 
         <div className="hero-topline">
-          <a href="#home" className="hero-logo">AN.</a>
           <span>WEB DEVELOPER / PAKISTAN</span>
-          <span>PORTFOLIO 2026</span>
+          <span>PORTFOLIO — 2026</span>
         </div>
 
         <div className="hero-main">
 
           <motion.div
             className="hero-content"
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
             <p className="hero-intro">
-              INDEPENDENT WEB DEVELOPER
+              HELLO, I'M AMINA NADEEM
             </p>
 
             <h1>
-              Amina
+              Building useful
               <br />
-              Nadeem<span>.</span>
+              digital <span>experiences.</span>
             </h1>
 
             <h2>Web Developer</h2>
 
             <p className="hero-description">
-              I build responsive websites and web applications
-              with a focus on functionality, clean interfaces
-              and thoughtful details.
+              I create responsive websites and web applications
+              using modern web technologies, with attention to
+              functionality, usability and thoughtful design.
             </p>
 
             <div className="hero-actions">
               <a href="#work" className="hero-primary-link">
-                VIEW SELECTED WORK
+                EXPLORE MY WORK
                 <ArrowUpRight size={17} />
               </a>
 
               <a href="#contact" className="hero-secondary-link">
-                GET IN TOUCH
+                LET'S TALK
               </a>
+            </div>
+
+            <div className="hero-tech">
+              <span>WORKING WITH</span>
+              <p>REACT · JAVASCRIPT · PHP · MYSQL</p>
             </div>
           </motion.div>
 
           <motion.div
-            className="hero-project-list"
-            initial={{ opacity: 0, x: 20 }}
+            className="hero-visual"
+            initial={{ opacity: 0, x: 25 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
           >
-            <div className="project-list-heading">
-              <span>SELECTED PROJECTS</span>
-              <span>2026</span>
+            <div className="hero-visual-heading">
+              <span>FEATURED PROJECT</span>
+              <span>01 / 06</span>
             </div>
 
-            {projects.map((project) => (
-              <a
-                href="#work"
-                className="hero-project-item"
-                key={project.number}
-              >
-                <span className="project-number">
-                  {project.number}
-                </span>
+            <a
+              href="#work"
+              className="hero-featured-project"
+              aria-label="Explore BudgetBasics project"
+            >
+              <img
+                src={budgetImage}
+                alt="BudgetBasics desktop website preview"
+                className="hero-desktop-image"
+              />
 
-                <div className="project-info">
-                  <h3>{project.name}</h3>
-                  <p>{project.type}</p>
-                </div>
+              <div className="hero-mobile-preview">
+                <img
+                  src={budgetMobile}
+                  alt="BudgetBasics mobile website preview"
+                />
+              </div>
 
-                <ArrowUpRight size={19} />
-              </a>
-            ))}
-
-            <a href="#work" className="all-projects-link">
-              VIEW ALL PROJECTS
-              <ArrowDownRight size={16} />
+              <span className="hero-image-arrow">
+                <ArrowUpRight size={20} />
+              </span>
             </a>
+
+            <div className="hero-visual-caption">
+              <div>
+                <h3>BudgetBasics</h3>
+                <p>Finance & Budgeting Application</p>
+              </div>
+
+              <span>REACT / JAVASCRIPT</span>
+            </div>
           </motion.div>
 
         </div>
 
-        <div className="hero-bottom">
-          <span>REACT · JAVASCRIPT · PHP · MYSQL</span>
-          <span>BASED IN PAKISTAN</span>
-        </div>
+        <a href="#work" className="hero-scroll">
+          <span>SCROLL TO EXPLORE</span>
+          <ArrowDown size={15} />
+        </a>
 
       </div>
     </section>

@@ -6,8 +6,6 @@
   color: var(--text);
 }
 
-/* Back navigation */
-
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -23,8 +21,6 @@
   opacity: 0.5;
 }
 
-/* Hero */
-
 .detail-hero {
   padding-top: 15px;
 }
@@ -33,6 +29,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 15px;
   padding-bottom: 22px;
   border-bottom: 1px solid var(--line);
   font-family: var(--font-mono);
@@ -96,23 +93,56 @@
   color: #62625d;
 }
 
-/* Project image */
+/* Desktop and mobile screenshots */
 
 .detail-image {
   width: 100%;
-  min-height: 250px;
   margin-bottom: 90px;
   overflow: hidden;
   border: 1px solid var(--line);
   background: #e8e7e1;
 }
 
-.detail-image img {
+.detail-preview-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 230px;
+  gap: 35px;
+  align-items: center;
+  padding: 35px;
+}
+
+.detail-desktop-preview,
+.detail-mobile-preview {
+  min-width: 0;
+}
+
+.detail-desktop-preview > span,
+.detail-mobile-preview > span {
+  display: block;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.detail-desktop-preview img {
   display: block;
   width: 100%;
   height: auto;
-  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.detail-mobile-preview img {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: contain;
   object-position: top center;
+  border: 5px solid #20211f;
+  border-radius: 18px;
+  background: white;
 }
 
 .detail-placeholder {
@@ -360,6 +390,12 @@
     gap: 40px;
   }
 
+  .detail-preview-layout {
+    grid-template-columns: minmax(0, 1fr) 190px;
+    gap: 22px;
+    padding: 25px;
+  }
+
   .detail-links {
     align-items: flex-start;
     flex-direction: column;
@@ -401,6 +437,21 @@
 
   .detail-image {
     margin-bottom: 55px;
+  }
+
+  .detail-preview-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 18px;
+  }
+
+  .detail-mobile-preview {
+    width: min(100%, 210px);
+    margin: 0 auto;
+  }
+
+  .detail-mobile-preview img {
+    max-height: 350px;
   }
 
   .detail-placeholder {
@@ -450,5 +501,19 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .detail-hero-top {
+    font-size: 7px;
+  }
+
+  .detail-title-area h1 {
+    font-size: 43px;
+  }
+
+  .detail-preview-layout {
+    padding: 12px;
   }
 }

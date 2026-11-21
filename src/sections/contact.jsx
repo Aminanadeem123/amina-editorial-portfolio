@@ -6,26 +6,36 @@ import { motion } from "framer-motion";
 import "./contact.css";
 
 function Contact() {
-  const formRef = useRef();
+  const formRef = useRef(null);
   const [status, setStatus] = useState("");
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (sending) return;
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus("error: Email service is not configured yet.");
+      return;
+    }
+
     setSending(true);
     setStatus("");
 
     try {
       await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        serviceId,
+        templateId,
         formRef.current,
-        {
-          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-        }
+        { publicKey }
       );
 
-      setStatus("success: Message sent successfully!");
+      setStatus("success: Your message has been sent successfully!");
       formRef.current.reset();
     } catch (error) {
       console.error("EmailJS error:", error);
@@ -51,7 +61,9 @@ function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="contact-kicker">LET'S WORK TOGETHER</span>
+            <span className="contact-kicker">
+              LET'S START A CONVERSATION
+            </span>
 
             <h2>
               Have an idea?
@@ -60,8 +72,9 @@ function Contact() {
             </h2>
 
             <p>
-              Have a website project, a question, or an idea
-              you'd like to discuss? I'd be happy to hear from you.
+              Whether you have a website project, a question,
+              or simply want to discuss an idea, feel free
+              to get in touch.
             </p>
 
             <div className="contact-links">
@@ -77,7 +90,7 @@ function Contact() {
               <a
                 href="https://github.com/Aminanadeem123"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="contact-github"
               >
                 GITHUB PROFILE
@@ -101,8 +114,10 @@ function Contact() {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <div className="form-heading">
-              <span className="section-label">01 — SEND A MESSAGE</span>
-              <p>I'll get back to you as soon as possible.</p>
+              <span className="section-label">
+                01 — SEND A MESSAGE
+              </span>
+              <p>Tell me what you have in mind.</p>
             </div>
 
             <label>
@@ -111,6 +126,8 @@ function Contact() {
                 type="text"
                 name="from_name"
                 placeholder="Enter your name"
+                autoComplete="name"
+                maxLength={80}
                 required
               />
             </label>
@@ -121,19 +138,37 @@ function Contact() {
                 type="email"
                 name="from_email"
                 placeholder="Enter your email"
+                autoComplete="email"
+                maxLength={120}
                 required
               />
             </label>
 
             <label>
               PROJECT TYPE
-              <select name="project_type" defaultValue="" required>
+              <select
+                name="project_type"
+                defaultValue=""
+                required
+              >
                 <option value="" disabled>
                   Select project type
                 </option>
-                <option value="Business Website">Business Website</option>
-                <option value="Landing Page">Landing Page</option>
-                <option value="Web Application">Web Application</option>
+                <option value="Business Website">
+                  Business Website
+                </option>
+                <option value="Landing Page">
+                  Landing Page
+                </option>
+                <option value="E-commerce Website">
+                  E-commerce Website
+                </option>
+                <option value="Web Application">
+                  Web Application
+                </option>
+                <option value="Website Improvement">
+                  Website Improvement
+                </option>
                 <option value="Other">Other</option>
               </select>
             </label>
@@ -144,6 +179,7 @@ function Contact() {
                 name="message"
                 placeholder="Tell me a little about your idea..."
                 rows="4"
+                maxLength={2000}
                 required
               />
             </label>
@@ -156,9 +192,12 @@ function Contact() {
             {status && (
               <p
                 className={`form-status ${
-                  status.startsWith("success") ? "success" : "error"
+                  status.startsWith("success")
+                    ? "success"
+                    : "error"
                 }`}
                 role="status"
+                aria-live="polite"
               >
                 {status.split(": ")[1]}
               </p>

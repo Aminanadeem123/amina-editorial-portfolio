@@ -5,18 +5,44 @@ import "./skills.css";
 const skillGroups = [
   {
     number: "01",
-    title: "Frontend",
-    skills: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "React"],
+    title: "Frontend Development",
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap",
+      "React (Basic)",
+    ],
   },
   {
     number: "02",
-    title: "Backend",
-    skills: ["PHP", "MySQL", "Laravel — Learning"],
+    title: "Backend & Database",
+    skills: [
+      "PHP",
+      "MySQL",
+      "Laravel (Learning)",
+      "Node.js",
+    ],
   },
   {
     number: "03",
-    title: "Tools",
-    skills: ["Git", "GitHub", "VS Code", "JSON", "Microsoft Office"],
+    title: "Tools & Technologies",
+    skills: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "JSON",
+      "XML",
+    ],
+  },
+  {
+    number: "04",
+    title: "Productivity",
+    skills: [
+      "Microsoft Word",
+      "Microsoft Excel",
+      "Microsoft PowerPoint",
+    ],
   },
 ];
 
@@ -25,11 +51,16 @@ function Skills() {
     <section className="skills-section" id="skills">
       <div className="container">
         <div className="skills-heading">
-          <span className="section-label">03 / TOOLKIT</span>
-          <h2>Tools of my <em>trade.</em></h2>
+          <span className="section-label">04 / TOOLKIT</span>
+
+          <h2>
+            Tools of my <em>trade.</em>
+          </h2>
+
           <p>
-            Technologies I use to build, experiment and
-            develop practical web projects.
+            Technologies and tools I use while building
+            projects, exploring new ideas and developing
+            my web development skills.
           </p>
         </div>
 
@@ -41,9 +72,14 @@ function Skills() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+              }}
             >
-              <span className="skill-number">{group.number}</span>
+              <span className="skill-number">
+                {group.number}
+              </span>
 
               <h3>{group.title}</h3>
 
@@ -57,10 +93,13 @@ function Skills() {
         </div>
 
         <div className="skills-note">
-          <span className="section-label">ALWAYS LEARNING</span>
+          <span className="section-label">
+            CURRENTLY LEARNING
+          </span>
+
           <p>
-            Currently expanding my knowledge of Laravel
-            and backend development.
+            Exploring Laravel and expanding my understanding
+            of backend development.
           </p>
         </div>
       </div>
